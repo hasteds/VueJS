@@ -4,7 +4,19 @@ const app = Vue.createApp({
         return {
             title: 'Star trek TNG',
             author: 'Gene Rodenberry',
-            age: 67
+            age: 67,
+            showBooks: true
+        }
+    },
+    methods: {
+        changeTitle(title) {
+            this.title = title
+        },
+        toggleShowBook() {
+            this.showBooks = !this.showBooks
+        },
+        handleEvent() {
+            console.log('event')
         }
     }
 })
