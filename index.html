@@ -13,32 +13,60 @@
             margin: 20px;
             display: inline-block;
         }
+        body {
+            background: #eee;
+            max-width: 1600px;
+            margin: 20px auto;
+        }
+        li {
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        p, h3, ul {
+            margin: 0;
+            padding: 0;
+        }
+        .fav {
+            background-color: #ddd;
+        }
     </style>
 </head>
 <body>
-    <h1>This is my empty web page</h1>
+    <h1>Vue learning app</h1>
     <div id="app">
         <div v-if="showBooks">
             <ul>
-                <li v-for="book in books">
-                    <img v-bind:src="book.img" v-bind:alt="book.title">
-                    <p>{{ book.title }} -- {{ book.author }} -- {{ book.age }}</p>
+                <li v-on:click="eventClicked(book)" v-for="book in filteredBooks" v-bind:class="{ fav: book.isFav }">
+                    <img v-bind:src="book.img" v-bind:alt="book.title" width="210" height="315">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
                 </li>
             </ul>
             
 
         </div>
-        <button v-on:click="age++">Increase age</button>
-        <button v-on:click="age--">Decrease age</button>
-        <button v-on:click="changeTitle('Oathbringer')">Change Title</button>
+
         <div>
             <button v-on:click="toggleShowBook">
                 <span v-if="showBooks">Hide books</span>
                 <span v-else>Show books</span>
             </button>
         </div>
+
+        <!--
+        <button v-on:click="age++">Increase age</button>
+        <button v-on:click="age--">Decrease age</button>
+        <button v-on:click="changeTitle('Oathbringer')">Change Title</button>
+        
         <br>
 
+        
         <div class="box" @mouseover="handleEvent($event, 5)">Mouseover</div>
         <div class="box" @mouseleave="handleEvent">Mouseleave</div>
         <div class="box" @dblclick="handleEvent">Double click</div>
@@ -46,6 +74,7 @@
         <br>
 
         <a v-bind:href="url">http://www.net.hr</a>
+        -->
     </div>
     <script src="app.js"></script>
 </body>

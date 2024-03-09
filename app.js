@@ -10,9 +10,9 @@ const app = Vue.createApp({
             x: 0,
             y: 0,
             books: [
-                {title: 'Star Wars', author: 'George Lucas', age: 82, img: 'images/1.jpg'},
-                {title: 'Star Trek', author: 'Gene Rodenberry', age: 88, img: 'images/2.jpg'},
-                {title: 'Dune', author: 'Frank Herbert', age: 65, img: 'images/3.jpg'}
+                {title: 'Star Wars', author: 'George Lucas', age: 82, img: 'images/1.jpg', isFav: true},
+                {title: 'Star Trek', author: 'Gene Rodenberry', age: 88, img: 'images/2.jpg', isFav: false},
+                {title: 'Dune', author: 'Frank Herbert', age: 65, img: 'images/3.jpg', isFav: true}
             ]
         }
     },
@@ -32,6 +32,14 @@ const app = Vue.createApp({
         handleMouseMove(e) {
             this.x = e.offsetX
             this.y = e.offsetY
+        },
+        eventClicked(book) {
+            book.isFav = !book.isFav
+        }
+    },
+    computed: {
+        filteredBooks() {
+            return this.books.filter((book) => book.isFav)
         }
     }
 })
