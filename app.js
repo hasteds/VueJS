@@ -11,7 +11,7 @@ const app = Vue.createApp({
             y: 0,
             books: [
                 {title: 'Star Wars', author: 'George Lucas', age: 82, img: 'images/1.jpg', isFav: true},
-                {title: 'Star Trek', author: 'Gene Rodenberry', age: 88, img: 'images/2.jpg', isFav: false},
+                {title: 'Star Trek', author: 'Gene Rodenberry', age: 88, img: 'images/2.jpg', isFav: true},
                 {title: 'Dune', author: 'Frank Herbert', age: 65, img: 'images/3.jpg', isFav: true}
             ]
         }
